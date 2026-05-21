@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { TextField, Button, Paper, Typography, Box, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import SaveIcon from '@mui/icons-material/Save';
+import './App.css';
 
 function TaskForm({ onSave, initialTask }) {
   const [title, setTitle] = useState(initialTask?.title || '');
@@ -166,9 +167,9 @@ function TaskForm({ onSave, initialTask }) {
               }
             }}
           >
-            <MenuItem value="P1">P1 — High</MenuItem>
-            <MenuItem value="P2">P2 — Medium</MenuItem>
-            <MenuItem value="P3">P3 — Low</MenuItem>
+            <MenuItem value="P1" className={priority === 'P1' ? 'priority-selected' : 'priority-unselected'}>P1 — High</MenuItem>
+            <MenuItem value="P2" className={priority === 'P2' ? 'priority-selected' : 'priority-unselected'}>P2 — Medium</MenuItem>
+            <MenuItem value="P3" className={priority === 'P3' ? 'priority-selected' : 'priority-unselected'}>P3 — Low</MenuItem>
           </Select>
         </FormControl>
         {error && <Typography color="error" sx={{ fontWeight: 500, fontSize: '0.875rem' }}>{error}</Typography>}
